@@ -7,10 +7,18 @@
     width: 250px;
     height: 100vh;
     padding: 50px;
-    
+
+    &__logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+    }
 
     &__title{
+        font-size: 20px;
         margin: 0;
+        margin-left: 10px;
     }
 
     &__icons{
@@ -43,6 +51,28 @@
                 width: 80%;
                 height: 80%;
             }
+        }
+    }
+    
+    &__log{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        height: 50px;
+        min-width: 90%;
+        border-radius: 15px;
+        background-color: transparent;
+        border: 1px solid #55afff; 
+        font-size: 20px;
+        transition: all 300ms ease-in-out;
+        font-weight: 100;
+        color: #fffff1;
+        text-decoration: none;
+    
+
+        &:hover{
+            background-color: #55a0f5;
         }
     }
 }

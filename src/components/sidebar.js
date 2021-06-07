@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMusic, faLightbulb, faFilm, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMusic, faLightbulb, faFilm, faPlus, faFingerprint } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 
 const Btn = styled.button`
@@ -9,12 +9,15 @@ color: ${({active})=> active ? '#161b22' : '#ffffff'};
 `
 
 const Sidebar = () => {
-    const [active, setActive] = useState('')
+    const [active, setActive] = useState('Music')
 
     return(
         <>
         <div className='sidebar'>
-            <h2 className='sidebar__title'>LaterThings</h2>
+            <div className='sidebar__logo'>
+            <FontAwesomeIcon className="sidebar__finger-icon" icon={faFingerprint} />
+            <p className='sidebar__title'>LaterThings</p>
+            </div>
             <div className='sidebar__icons'>
                 <Btn active={active === 'Music'} onClick={()=>setActive('Music')} >
                 <FontAwesomeIcon className='sidebar-icon' icon={faMusic} />
@@ -26,9 +29,7 @@ const Sidebar = () => {
                 <FontAwesomeIcon className='sidebar-icon' icon={faFilm} />
                 </Btn>
             </div>
-            <div className='sidebar__log'>
-            <h2>Logout</h2>
-            </div>
+            <button className='sidebar__log'>Logout</button>
         </div>
         <button className='add'>
         <FontAwesomeIcon className='add-icon' icon={faPlus} />
