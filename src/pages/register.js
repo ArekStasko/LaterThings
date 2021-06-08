@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFingerprint } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFingerprint } from "@fortawesome/free-solid-svg-icons";
 
 class Register extends React.Component {
   constructor() {
@@ -16,7 +16,11 @@ class Register extends React.Component {
 
   Handlesubmit = (e) => {
     e.preventDefault();
-    if (this.state.nickname.length > 0 && this.state.nickname.length > 0 && this.state.password === this.state.repeatPassword) {
+    if (
+      this.state.nickname.length > 0 &&
+      this.state.nickname.length > 0 &&
+      this.state.password === this.state.repeatPassword
+    ) {
       this.setState((state) => ({ registeredIn: !state.registeredIn }));
     } else {
       console.log("pass password and nickname");
@@ -27,33 +31,39 @@ class Register extends React.Component {
     const { registeredIn } = this.state;
 
     if (registeredIn) {
-      return <Redirect to="/" />;
+      return <Redirect to="/login" />;
     }
 
     return (
       <div className="register">
-        <FontAwesomeIcon className='register__finger-icon' icon={faFingerprint} />
-        <h1 className='register__header'>Create your Finger account</h1>
-        <div className='register__box'>
-          <form className='register__box--form' onSubmit={(e) => this.Handlesubmit(e)}>
-            <label htmlFor='nickname'>Nickname</label>
+        <FontAwesomeIcon
+          className="register__finger-icon"
+          icon={faFingerprint}
+        />
+        <h1 className="register__header">Create your Finger account</h1>
+        <div className="register__box">
+          <form
+            className="register__box--form"
+            onSubmit={(e) => this.Handlesubmit(e)}
+          >
+            <label htmlFor="nickname">Nickname</label>
             <input
-              type='text'
-              id='nickname'
+              type="text"
+              id="nickname"
               value={this.state.nickname}
               onChange={(e) => this.setState({ nickname: e.target.value })}
             />
-            <label htmlFor='password'>Password</label>
+            <label htmlFor="password">Password</label>
             <input
-              type='password'
-              id='password'
+              type="password"
+              id="password"
               value={this.state.password}
               onChange={(e) => this.setState({ password: e.target.value })}
             />
-            <label htmlFor='repeatPassword'>Repeat the password</label>
+            <label htmlFor="repeatPassword">Repeat the password</label>
             <input
-              type='password'
-              id='repeatPassword'
+              type="password"
+              id="repeatPassword"
               value={this.state.repeatPassword}
               onChange={(e) =>
                 this.setState({ repeatPassword: e.target.value })
@@ -61,7 +71,9 @@ class Register extends React.Component {
             />
             <button type="submit">Register</button>
           </form>
-            <Link className='redirect-login' to="/">Login to your Finger</Link>
+          <Link className="redirect-login" to="/login">
+            Login to your Finger
+          </Link>
         </div>
       </div>
     );

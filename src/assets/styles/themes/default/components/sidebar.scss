@@ -28,7 +28,7 @@
         height: 100%;
 
 
-        button{
+        &--icon{
             cursor: pointer;
             display: flex;
             justify-content: center;
@@ -85,16 +85,16 @@
     align-items: center;
     right: 40px;
     top: 40px;
-    background-color: #161b22;
+    background-color: transparent;
     color: #ffffff;
     width: 60px;
     height: 60px;
     border-radius: 60px;
-    border: none;
+    border: 2px solid #55a0f5;
     transition: all 300ms ease-in-out;
 
     &:hover{
-        transform: scale(1.1);
+        background-color: #55a0f5;
     }
 
     .add-icon{
