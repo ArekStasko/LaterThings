@@ -1,0 +1,16 @@
+.category-thing{
+    width: 60%;
+    margin: 10vh auto;
+    display: flex;
+    flex-wrap: wrap; 
+
+    &__card{
+        width: 300px;
+        height: 250px;
+        margin: 10px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #161b22;
+        border: 1px solid #55afff;
+    }
+}
