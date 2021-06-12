@@ -6,14 +6,14 @@ import '../assets/styles/themes/default/theme.scss'
 
 const MainPage = () => {
 
-    const [category, setCategory] = useState('Music')
+    const [category, setCategory] = useState('music')
     const [show, setShow] = useState(false)
 
     return(
         <div class='main-page'>
             <Sidebar category={category} setShow={setShow} show={show} setCategory={setCategory} />
             {
-                show ? <AddForm show={show} setShow={setShow} /> : <></>
+                show ? <AddForm category={category} show={show} setShow={setShow} /> : <></>
             }
            <CategoryThing category={category} />
         </div>

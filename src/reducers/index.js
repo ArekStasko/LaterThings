@@ -1,150 +1,40 @@
 const initialState = {
     music: [
-      {
-          title: 'przykladowy tytul muzyczny',
-          content: 'przykladowy opis',
-          link: 'przykladowy link'
-      },
-      {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
-    {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
-    {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
-    {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
-    {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
-    {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
-    {
-        title: 'przykladowy tytul muzyczny',
-        content: 'przykladowy opis',
-        link: 'przykladowy link'
-    },
+     
     ],
     film: [
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul filmowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
+      
     ],
     ideas: [
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
-        {
-            title: 'przykladowy tytul pomyslowy',
-            content: 'przykladowy opis',
-            link: 'przykladowy link'
-        },
+       
     ],
 }
 
 
 const rootReducer = (state = initialState, action) => {
-  return state
-};
+  switch (action.type) {
+   case 'REMOVE_THING':
+     return {
+         ...state,
+         [action.payload.category]: [
+             ...state[action.payload.category].filter(item => item.id 
+             !== action.payload.id),
+         ],
+     };
+   case 'ADD_THING':
+       console.log(
+        state
+       )
+     return {
+         ...state,
+         [action.payload.category]: 
+         [...state[action.payload.category],
+          action.payload.thing
+        ],
+     };
+     default:
+         return state;
+  }; 
+}
 
 export default rootReducer

@@ -1,10 +1,13 @@
 .category-thing{
-    width: 60%;
-    margin: 10vh auto;
+    max-width: 80%;
+    margin-top: 10vh;
+    margin-left: 300px;
     display: flex;
     flex-wrap: wrap; 
 
     &__card{
+        display: flex;
+        flex-direction: column;
         width: 300px;
         height: 250px;
         margin: 10px;
@@ -12,5 +15,34 @@
         border-radius: 10px;
         background-color: #161b22;
         border: 1px solid #55afff;
+
+        &--delete{
+            cursor: pointer;
+            justify-self: flex-end;
+            align-self: flex-end;
+            background-color: transparent;
+            font-size: 20px;
+            border: none;
+            color: #55a0f5;
+        }
+
+        &--link{
+            cursor: pointer;
+            width: 60%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #ffffff;
+            border: 1px solid #55afff;
+            background-color: #0d1117;
+            border-radius: 10px;
+            transition: all 400ms ease-in-out;
+
+            &:hover{
+                background-color: #55a0f5;
+            }
+        }
     }
 }

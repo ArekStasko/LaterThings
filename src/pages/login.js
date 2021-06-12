@@ -15,7 +15,7 @@ class Login extends React.Component {
 
   Handlesubmit = (e) => {
     e.preventDefault();
-    if (this.state.nickname.length > 0 && this.state.nickname.length > 0) {
+    if (this.state.nickname.length > 0 && this.state.password.length > 0) {
       this.setState((state) => ({ loggedIn: !state.loggedIn }));
     } else {
       console.log("pass password and nickname");

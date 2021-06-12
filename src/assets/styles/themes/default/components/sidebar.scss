@@ -1,5 +1,6 @@
 .sidebar{
     position: fixed;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -62,7 +63,7 @@
         height: 50px;
         min-width: 90%;
         border-radius: 15px;
-        background-color: transparent;
+        background-color: #0d1117;
         border: 1px solid #55afff; 
         font-size: 20px;
         transition: all 300ms ease-in-out;

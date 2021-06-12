@@ -8,10 +8,10 @@ const CategoryThing = ({category, music, ideas, film}) => {
     return(
         <div className='category-thing'>
         {
-            category === 'Music' ? (
+            category === 'music' ? (
                 <Cards info={music} />
             ) 
-            : category === 'Ideas' ? (
+            : category === 'ideas' ? (
                 <Cards info={ideas} />
             )
             : (

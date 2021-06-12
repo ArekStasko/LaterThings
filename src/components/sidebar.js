@@ -28,26 +28,26 @@ const Sidebar = ({ category, show, setCategory, setShow }) => {
         </div>
         <div className="sidebar__icons">
           <Btn
-            to='/things/Music'
+            to='/things/music'
             className='sidebar__icons--icon'
-            active={category === "Music"}
-            onClick={() => setCategory("Music")}
+            active={category === "music"}
+            onClick={() => setCategory("music")}
           >
             <FontAwesomeIcon className="sidebar-icon" icon={faMusic} />
           </Btn>
           <Btn
-            to='/things/Ideas'
+            to='/things/ideas'
             className='sidebar__icons--icon'
-            active={category === "Ideas"}
-            onClick={() => setCategory("Ideas")}
+            active={category === "ideas"}
+            onClick={() => setCategory("ideas")}
           >
             <FontAwesomeIcon className="sidebar-icon" icon={faLightbulb} />
           </Btn>
           <Btn
-            to='/things/Film'
+            to='/things/film'
             className='sidebar__icons--icon'
-            active={category === "Film"} 
-            onClick={() => setCategory("Film")}
+            active={category === "film"} 
+            onClick={() => setCategory("film")}
           >
             <FontAwesomeIcon className="sidebar-icon" icon={faFilm} />
           </Btn>
