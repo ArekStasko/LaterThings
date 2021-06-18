@@ -2,6 +2,8 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFingerprint } from "@fortawesome/free-solid-svg-icons";
+import { connect } from 'react-redux'
+import { register } from '../actions/index'
 
 class Register extends React.Component {
   constructor() {
@@ -10,7 +12,6 @@ class Register extends React.Component {
       nickname: "",
       password: "",
       repeatPassword: "",
-      registeredIn: false,
     };
   }
 
@@ -18,20 +19,19 @@ class Register extends React.Component {
     e.preventDefault();
     if (
       this.state.nickname.length > 0 &&
-      this.state.nickname.length > 0 &&
+      this.state.password.length > 0 &&
       this.state.password === this.state.repeatPassword
     ) {
-      this.setState((state) => ({ registeredIn: !state.registeredIn }));
+      this.props.register(this.state.nickname, this.state.password)
     } else {
       console.log("pass password and nickname");
     }
   };
 
   render() {
-    const { registeredIn } = this.state;
 
-    if (registeredIn) {
-      return <Redirect to="/login" />;
+    if (this.props.userID) {
+      return <Redirect to="/things/music" />;
     }
 
     return (
@@ -80,4 +80,11 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+const mapStateToProps = ({ userID = null }) => ({ userID }) 
+
+const mapDispatchToProps = dispatch => ({
+  register: (username, password) =>
+    dispatch(register(username, password)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

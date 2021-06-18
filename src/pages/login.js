@@ -2,6 +2,8 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFingerprint } from "@fortawesome/free-solid-svg-icons";
+import { connect } from 'react-redux'
+import { authenticate } from '../actions/index'
 
 class Login extends React.Component {
   constructor() {
@@ -9,24 +11,23 @@ class Login extends React.Component {
     this.state = {
       nickname: "",
       password: "",
-      loggedIn: false,
     };
   }
 
   Handlesubmit = (e) => {
     e.preventDefault();
     if (this.state.nickname.length > 0 && this.state.password.length > 0) {
-      this.setState((state) => ({ loggedIn: !state.loggedIn }));
+        this.props.authenticate(this.state.nickname, this.state.password)
     } else {
       console.log("pass password and nickname");
     }
   };
 
-  render() {
-    const { loggedIn } = this.state;
 
-    if (loggedIn) {
-      return <Redirect to="/things/Music" />;
+  render() {
+
+    if (this.props.userID) {
+      return <Redirect to="/things/music" />;
     }
 
     return (
@@ -63,4 +64,11 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapStateToProps = ({userID = null}) => ({userID}) 
+
+const mapDispatchToProps = dispatch => ({
+  authenticate: (username, password) =>
+    dispatch(authenticate(username, password)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

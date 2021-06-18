@@ -46,3 +46,18 @@
         }
     }
 }
+
+
+
+
+@media (max-width: 768px) {
+
+    .category-thing{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0px;
+    }
+    
+}

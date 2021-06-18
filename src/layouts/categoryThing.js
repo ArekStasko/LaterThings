@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Cards from '../components/cards'
 
-const CategoryThing = ({category, music, ideas, film}) => {
 
+const CategoryThing = ({category, music, ideas, film}) => {
 
     return(
         <div className='category-thing'>

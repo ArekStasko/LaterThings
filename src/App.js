@@ -10,8 +10,8 @@ import Login from './pages/login'
 import Register from './pages/register'
 import FirstPage from './pages/firstPage'
 
-
 function App() {
+
   return (
     <Provider store={store}>
     <div >
