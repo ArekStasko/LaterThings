@@ -67,7 +67,6 @@ export const authenticate = (username, password) => (dispatch) => {
       dispatch({ type: "AUTHENTICATE_SUCC", payload });
     })
     .catch((err) => {
-      console.log(err, "oh maaan");
       dispatch({ type: "AUTHENTICATE_ERR", err });
     });
 };
@@ -92,7 +91,6 @@ export const addThing = (category, thingContent) => (dispatch, getState) => {
       })
    })
    .catch((err) => {
-     console.log(err, 'hmm error')
      dispatch({ type: 'ADD_ERROR', err })
    })
 };
@@ -114,4 +112,10 @@ export const removeThing = (category, id) => (dispatch) => {
      console.log(err, 'hmm error')
      dispatch({ type: 'REMOVE_ERROR', err })
    })
+};
+
+export const resetFlash = () => {
+  return {
+    type: "FLASH_RESET"
+  };
 };

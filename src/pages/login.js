@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFingerprint } from "@fortawesome/free-solid-svg-icons";
 import { connect } from 'react-redux'
 import { authenticate } from '../actions/index'
+import FlashMessage from "../flash/flash";
 
 
 
@@ -21,7 +22,7 @@ class Login extends React.Component {
     if (this.state.nickname.length > 0 && this.state.password.length > 0) {
         this.props.authenticate(this.state.nickname, this.state.password)
     } else {
-      console.log("pass password and nickname");
+      console.log('pass correct values')
     }
   };
 
@@ -33,6 +34,14 @@ class Login extends React.Component {
     }     
 
     return (
+      <>
+      {
+        this.props.flash ? (
+          <>
+          <FlashMessage duration={5000} type={this.props.flash} />
+          </>
+        ) : null
+      }
       <div className="login">
         <FontAwesomeIcon className="login__finger-icon" icon={faFingerprint} />
         <h1 className="login__header">Login to your Finger</h1>
@@ -62,11 +71,12 @@ class Login extends React.Component {
           </Link>
         </div>
       </div>
+      </>
     );
   }
 }
 
-const mapStateToProps = ({userID = null}) => ({userID}) 
+const mapStateToProps = ({userID = null, flash}) => ({userID, flash}) 
 
 const mapDispatchToProps = dispatch => ({
   authenticate: (username, password) =>

@@ -37,6 +37,11 @@ const rootReducer = (state = initialState, action) => {
        ...state,
        userID: action.payload.data._id
      } 
+   case 'AUTHENTICATE_ERR':
+     return{
+       ...state,
+       flash: action.err
+     }  
    case 'REMOVE_SUCC':
      return {
          ...state,
@@ -45,6 +50,11 @@ const rootReducer = (state = initialState, action) => {
          !== action.payload.id),
          ]
      };
+   case "FLASH_RESET":
+     return{
+       ...state,
+       flash: null
+     }
      default:
          return state;
   }; 
