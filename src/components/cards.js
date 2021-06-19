@@ -4,6 +4,7 @@ import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { removeThing as removeThingAction, getItems } from "../actions/index";
 class Cards extends React.Component {
+  
   componentDidUpdate(prevProps) {
     if (this.props.category !== prevProps.category) {
       this.props.getItems(this.props.category);
@@ -18,7 +19,7 @@ class Cards extends React.Component {
             this.props.info.map((item, index) => (
               <div key={index} className="category-thing__card">
                 <button
-                  onClick={() => this.props.removeThing(item.category, item.id)}
+                  onClick={() => this.props.removeThing(item.category, item._id)}
                   className="category-thing__card--delete"
                 >
                   <FontAwesomeIcon icon={faWindowClose} />

@@ -3,6 +3,14 @@ const initialState = {}
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+   case 'ADD_SUCC' :
+     return{
+      ...state,
+      [action.payload.category]: 
+      [...state[action.payload.category],
+       action.payload.data
+     ],
+     }
    case 'LOGOUT_REQ':
      return{
       ...state,
@@ -18,7 +26,6 @@ const rootReducer = (state = initialState, action) => {
        ...state,
        [action.payload.category]: 
         action.payload.data.things
-       
      }
    case 'REGISTER_SUCC':
      return{
@@ -30,21 +37,13 @@ const rootReducer = (state = initialState, action) => {
        ...state,
        userID: action.payload.data._id
      } 
-   case 'REMOVE_THING':
+   case 'REMOVE_SUCC':
      return {
          ...state,
-         [action.payload.category]: [
-             ...state[action.payload.category].filter(item => item.id 
-             !== action.payload.id),
-         ],
-     };
-   case 'ADD_THING':
-     return {
-         ...state,
-         [action.payload.category]: 
-         [...state[action.payload.category],
-          action.payload.thing
-        ],
+         [action.payload.category]:[
+         ...state[action.payload.category].filter(item => item._id 
+         !== action.payload.id),
+         ]
      };
      default:
          return state;

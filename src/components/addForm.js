@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { addThing as addThingAction } from "../actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
-import { v4 as uuidv4 } from 'uuid';
 
 class AddForm extends React.Component {
   constructor() {
@@ -31,9 +30,8 @@ class AddForm extends React.Component {
         this.props.category,
         {
         category: this.props.category,
-        id: uuidv4(),
         title: this.state.title,
-        content: this.state.description,
+        description: this.state.description,
         link: this.state.link
         }
       ) 

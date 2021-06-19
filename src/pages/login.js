@@ -5,6 +5,8 @@ import { faFingerprint } from "@fortawesome/free-solid-svg-icons";
 import { connect } from 'react-redux'
 import { authenticate } from '../actions/index'
 
+
+
 class Login extends React.Component {
   constructor() {
     super();
@@ -28,7 +30,7 @@ class Login extends React.Component {
 
     if (this.props.userID) {
       return <Redirect to="/things/music" />;
-    }
+    }     
 
     return (
       <div className="login">

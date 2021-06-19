@@ -1,32 +1,12 @@
 import axios from "axios";
-const { REACT_APP_LOGIN, REACT_APP_REGISTER, REACT_APP_GET } = process.env;
+const { REACT_APP_LOGIN, REACT_APP_REGISTER, REACT_APP_GET, REACT_APP_CREATE, REACT_APP_DELETE } = process.env;
 
-
-export const removeThing = (category, id) => ({
-  type: "REMOVE_THING",
-  payload: {
-    category,
-    id,
-  },
-});
 
 export const logout = () => {
   return {
     type: 'LOGOUT_REQ',
   }
 }
-
-export const addThing = (category, thingContent) => {
-  return {
-    type: "ADD_THING",
-    payload: {
-      category,
-      thing: {
-        ...thingContent,
-      },
-    },
-  };
-};
 
 export const addCategory = category => {
   return {
@@ -90,4 +70,48 @@ export const authenticate = (username, password) => (dispatch) => {
       console.log(err, "oh maaan");
       dispatch({ type: "AUTHENTICATE_ERR", err });
     });
+};
+
+
+export const addThing = (category, thingContent) => (dispatch, getState) => {
+  dispatch({ type: "ADD_REQ" })
+  return axios
+   .post(REACT_APP_CREATE,{
+      params:{
+        userID: getState().userID
+      },
+      thingContent
+   })
+   .then(({ data }) => {
+     dispatch({ 
+       type: 'ADD_SUCC',
+       payload: {
+        data,
+        category
+      }
+      })
+   })
+   .catch((err) => {
+     console.log(err, 'hmm error')
+     dispatch({ type: 'ADD_ERROR', err })
+   })
+};
+
+export const removeThing = (category, id) => (dispatch) => {
+  dispatch({ type: "REMOVE_REQ" })
+  return axios
+   .delete(REACT_APP_DELETE + id)
+   .then(() => {
+     dispatch({ 
+       type: 'REMOVE_SUCC',
+       payload: {
+         category,
+         id
+       }
+      })
+   })
+   .catch((err) => {
+     console.log(err, 'hmm error')
+     dispatch({ type: 'REMOVE_ERROR', err })
+   })
 };
