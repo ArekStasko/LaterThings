@@ -6,6 +6,7 @@ const rootReducer = (state = initialState, action) => {
    case 'ADD_SUCC' :
      return{
       ...state,
+      flash: 'SUCCESS',
       [action.payload.category]: 
       [...state[action.payload.category],
        action.payload.data
@@ -14,6 +15,7 @@ const rootReducer = (state = initialState, action) => {
    case 'LOGOUT_REQ':
      return{
       ...state,
+      flash: 'SUCCESS',
       userID: null
      }
    case 'ADD_CATEGORY':
@@ -30,21 +32,24 @@ const rootReducer = (state = initialState, action) => {
    case 'REGISTER_SUCC':
      return{
        ...state,
+       flash: 'SUCCESS',
        userID: action.payload.data._id
      }
    case 'AUTHENTICATE_SUCC':
      return{
        ...state,
+       flash: 'SUCCESS',
        userID: action.payload.data._id
      } 
-   case 'AUTHENTICATE_ERR':
+   case 'ERR':
      return{
        ...state,
-       flash: action.err
-     }  
+       flash: 'ERROR'
+     }   
    case 'REMOVE_SUCC':
      return {
          ...state,
+         flash: 'SUCCESS',
          [action.payload.category]:[
          ...state[action.payload.category].filter(item => item._id 
          !== action.payload.id),

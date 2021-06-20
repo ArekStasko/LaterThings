@@ -36,7 +36,7 @@ export const getItems = (category) => (dispatch, getState) =>{
     })
     .catch((err) => {
       console.log(err, "oh maaan");
-      dispatch({ type: "GET_ERR", err });
+      dispatch({ type: "ERR", err });
     });
 }
 
@@ -51,8 +51,7 @@ export const register = (username, password) => (dispatch) => {
       dispatch({ type: "REGISTER_SUCC", payload });
     })
     .catch((err) => {
-      console.log(err, "oh maaan");
-      dispatch({ type: "REGISTER_ERR", err });
+      dispatch({ type: "ERR", err });
     });
 };
 
@@ -67,7 +66,7 @@ export const authenticate = (username, password) => (dispatch) => {
       dispatch({ type: "AUTHENTICATE_SUCC", payload });
     })
     .catch((err) => {
-      dispatch({ type: "AUTHENTICATE_ERR", err });
+      dispatch({ type: "ERR", err });
     });
 };
 
@@ -91,7 +90,7 @@ export const addThing = (category, thingContent) => (dispatch, getState) => {
       })
    })
    .catch((err) => {
-     dispatch({ type: 'ADD_ERROR', err })
+     dispatch({ type: 'ERR', err })
    })
 };
 
@@ -110,7 +109,7 @@ export const removeThing = (category, id) => (dispatch) => {
    })
    .catch((err) => {
      console.log(err, 'hmm error')
-     dispatch({ type: 'REMOVE_ERROR', err })
+     dispatch({ type: 'ERR', err })
    })
 };
 

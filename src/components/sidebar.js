@@ -7,8 +7,6 @@ import {
   faFilm,
   faPlus,
   faFingerprint,
-  faBars,
-  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";

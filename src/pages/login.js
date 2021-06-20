@@ -19,11 +19,7 @@ class Login extends React.Component {
 
   Handlesubmit = (e) => {
     e.preventDefault();
-    if (this.state.nickname.length > 0 && this.state.password.length > 0) {
-        this.props.authenticate(this.state.nickname, this.state.password)
-    } else {
-      console.log('pass correct values')
-    }
+    this.props.authenticate(this.state.nickname, this.state.password)
   };
 
 
@@ -38,7 +34,7 @@ class Login extends React.Component {
       {
         this.props.flash ? (
           <>
-          <FlashMessage duration={5000} type={this.props.flash} />
+          <FlashMessage duration={6000} />
           </>
         ) : null
       }

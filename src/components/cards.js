@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { removeThing as removeThingAction, getItems } from "../actions/index";
+import FlashMessage from "../flash/flash";
+
 class Cards extends React.Component {
   
   componentDidUpdate(prevProps) {
@@ -14,6 +16,13 @@ class Cards extends React.Component {
   render() {
     return (
       <>
+      {
+        this.props.flash ? (
+          <>
+          <FlashMessage duration={5000} />
+          </>
+        ) : null
+      }
         {this.props.info ? (
           this.props.info.length > 0 ? (
             this.props.info.map((item, index) => (
@@ -50,7 +59,7 @@ class Cards extends React.Component {
   }
 }
 
-const mapStateToProps = ({ category }) => ({ category });
+const mapStateToProps = ({ category, flash }) => ({ category, flash });
 
 const mapDispatchToProps = (dispatch) => ({
   getItems: (category) => dispatch(getItems(category)),

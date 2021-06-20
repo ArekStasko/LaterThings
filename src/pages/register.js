@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFingerprint } from "@fortawesome/free-solid-svg-icons";
 import { connect } from 'react-redux'
 import { register } from '../actions/index'
+import FlashMessage from "../flash/flash";
+
 
 class Register extends React.Component {
   constructor() {
@@ -17,15 +19,7 @@ class Register extends React.Component {
 
   Handlesubmit = (e) => {
     e.preventDefault();
-    if (
-      this.state.nickname.length > 0 &&
-      this.state.password.length > 0 &&
-      this.state.password === this.state.repeatPassword
-    ) {
-      this.props.register(this.state.nickname, this.state.password)
-    } else {
-      console.log("pass password and nickname");
-    }
+    this.props.register(this.state.nickname, this.state.password)
   };
 
   render() {
@@ -35,6 +29,14 @@ class Register extends React.Component {
     }
 
     return (
+      <>
+      {
+        this.props.flash ? (
+          <>
+          <FlashMessage duration={5000} />
+          </>
+        ) : null
+      }
       <div className="register">
         <FontAwesomeIcon
           className="register__finger-icon"
@@ -76,11 +78,12 @@ class Register extends React.Component {
           </Link>
         </div>
       </div>
+      </>
     );
   }
 }
 
-const mapStateToProps = ({ userID = null }) => ({ userID }) 
+const mapStateToProps = ({ userID = null, flash }) => ({ userID, flash }) 
 
 const mapDispatchToProps = dispatch => ({
   register: (username, password) =>
