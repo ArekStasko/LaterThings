@@ -1,3 +1,12 @@
+.nav-btn{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    font-size: 40px;
+    top: 40px;
+    left: 40px;
+}
+
 .sidebar{
     position: fixed;
     z-index: 0;
@@ -62,7 +71,7 @@
         align-items: center;
         cursor: pointer;
         height: 50px;
-        min-width: 90%;
+        width: 200px;
         border-radius: 15px;
         background-color: #0d1117;
         border: 1px solid #55afff; 
@@ -110,13 +119,16 @@
 
 @media (max-width: 768px) {
     .sidebar{
-        display: flex;
         align-items: center;
         background-color: #161b22;
         width: 100vw;
         height: 100vh;
         padding: 50px;
    }
+
+   .nav-btn{
+    display: initial;
+}
 }
 
 @media (max-width: 375px) {

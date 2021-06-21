@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,6 +7,8 @@ import {
   faFilm,
   faPlus,
   faFingerprint,
+  faTimes,
+  faBars
 } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
@@ -18,8 +20,16 @@ const Btn = styled(Link)`
   color: ${({ active }) => (active ? "#161b22" : "#ffffff")};
 `;
 
+const Navbar = styled.div`
+
+ @media (max-width: 768px){
+  display: ${({nav})=>(nav?'flex':'none')};
+ }
+`
+
 
 const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
+  const [nav, setNav] = useState(false)
   let history = useHistory();
 
   useEffect(() => {
@@ -33,7 +43,12 @@ const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
 
   return (
     <>
-      <div className="sidebar">
+    <FontAwesomeIcon
+            className="nav-btn"
+            onClick={()=>setNav(!nav)}
+            icon={nav?faTimes:faBars}
+          />
+      <Navbar nav={nav} className="sidebar">
         <div className="sidebar__logo">
           <FontAwesomeIcon
             className="sidebar__finger-icon"
@@ -46,7 +61,10 @@ const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
             to="/things/music"
             className="sidebar__icons--icon"
             active={category === "music"}
-            onClick={() => addCategory("music")}
+            onClick={() => {
+              addCategory("music")
+              setNav(!nav)
+            }}
           >
             <FontAwesomeIcon className="sidebar-icon" icon={faMusic} />
           </Btn>
@@ -54,7 +72,10 @@ const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
             to="/things/ideas"
             className="sidebar__icons--icon"
             active={category === "ideas"}
-            onClick={() => addCategory("ideas")}
+            onClick={() => {
+              addCategory("ideas")
+              setNav(!nav)
+            }}
           >
             <FontAwesomeIcon className="sidebar-icon" icon={faLightbulb} />
           </Btn>
@@ -62,7 +83,10 @@ const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
             to="/things/film"
             className="sidebar__icons--icon"
             active={category === "film"}
-            onClick={() => addCategory("film")}
+            onClick={() => {
+              addCategory("film")
+              setNav(!nav)
+            }}
           >
             <FontAwesomeIcon className="sidebar-icon" icon={faFilm} />
           </Btn>
@@ -70,8 +94,11 @@ const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
         <button onClick={() => runLogout()} className="sidebar__log">
           Logout
         </button>
-      </div>
-      <button className="add" onClick={() => setShow(!show)}>
+      </Navbar>
+      <button className="add" onClick={() => {
+         setShow(!show)
+         setNav(!nav)
+         }}>
         <FontAwesomeIcon className="add-icon" icon={faPlus} />
       </button>
     </>

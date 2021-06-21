@@ -4,36 +4,28 @@ import { resetFlash } from '../actions/index'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationCircle, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const FlashMessage = ({ duration, resetFlash, flash }) => {
-  
-  const flashTimer = setTimeout(() => {
-    resetFlash()
-    console.log('LOL')
-  }, duration);
+const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
 
   useEffect(() => {
-    return flashTimer
+    setTimeout(() => {
+      resetFlash()
+    }, duration);
    }, []);
-
-  const clearFlash = () => {
-    resetFlash()
-    clearTimeout(flashTimer)
-  }
   
   const pick = () => {
-    switch (flash) {
+    switch (flash.type) {
       case 'ERROR':
         return(
           <div className='flash-error'>
             <FontAwesomeIcon className="flash-error__icon" icon={faExclamationCircle} />
-            <p>Please pass correct values</p>
+            <p>{errMessage}</p>
           </div>
         )
       case 'SUCCESS':
         return(
           <div className='flash-success'>
             <FontAwesomeIcon className="flash-success__icon" icon={faCheckCircle} />
-            <p>Success</p>
+            <p>{flash.message}</p>
           </div>
         )  
       default:
@@ -44,8 +36,9 @@ const FlashMessage = ({ duration, resetFlash, flash }) => {
         )  
     }
   }
+
   return (
-    <div className="flash" onClick={()=> clearFlash()}>
+    <div className="flash">
       {
         pick()
       }

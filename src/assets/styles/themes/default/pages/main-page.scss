@@ -3,3 +3,9 @@
     display: flex;
     justify-content: flex-start;
 }
+
+@media (max-width: 768px) {
+    .main-page{
+        justify-content: center;
+    }
+}

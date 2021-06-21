@@ -1,5 +1,6 @@
 .addform-container{
     position: fixed;
+    z-index: 1;
     backdrop-filter: blur(5px);
     width: 100%;
     height: 100%;

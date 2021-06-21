@@ -6,7 +6,11 @@ const rootReducer = (state = initialState, action) => {
    case 'ADD_SUCC' :
      return{
       ...state,
-      flash: 'SUCCESS',
+      loading: false,
+      flash: {
+        type: 'SUCCESS',
+        message: 'You added new thing !'
+       },
       [action.payload.category]: 
       [...state[action.payload.category],
        action.payload.data
@@ -15,8 +19,16 @@ const rootReducer = (state = initialState, action) => {
    case 'LOGOUT_REQ':
      return{
       ...state,
-      flash: 'SUCCESS',
+      flash: {
+        type: 'SUCCESS',
+        message: 'Hope to see you again !'
+       },
       userID: null
+     }
+   case 'AUTHENTICATE_REQ':
+     return{
+      ...state,
+      loading: true,
      }
    case 'ADD_CATEGORY':
      return{
@@ -32,24 +44,40 @@ const rootReducer = (state = initialState, action) => {
    case 'REGISTER_SUCC':
      return{
        ...state,
-       flash: 'SUCCESS',
+       loading: false,
+       flash: {
+        type: 'SUCCESS',
+        message: 'Welcome to my application !'
+       },
        userID: action.payload.data._id
      }
    case 'AUTHENTICATE_SUCC':
      return{
        ...state,
-       flash: 'SUCCESS',
+       loading: false,
+       flash: {
+        type: 'SUCCESS',
+        message: 'Nice to see you again !'
+       },
        userID: action.payload.data._id
      } 
    case 'ERR':
      return{
        ...state,
-       flash: 'ERROR'
+       loading: false,
+       flash: {
+          type: 'ERROR',
+          message: null,
+         },
      }   
    case 'REMOVE_SUCC':
      return {
          ...state,
-         flash: 'SUCCESS',
+         loading: false,
+         flash: {
+          type: 'SUCCESS',
+          message: 'Successfully deleted thing'
+         },
          [action.payload.category]:[
          ...state[action.payload.category].filter(item => item._id 
          !== action.payload.id),

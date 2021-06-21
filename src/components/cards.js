@@ -4,6 +4,7 @@ import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { removeThing as removeThingAction, getItems } from "../actions/index";
 import FlashMessage from "../flash/flash";
+import LoadingPage from "./loading";
 
 class Cards extends React.Component {
   
@@ -13,14 +14,15 @@ class Cards extends React.Component {
     }
   }
 
+
   render() {
     return (
       <>
       {
         this.props.flash ? (
-          <>
-          <FlashMessage duration={5000} />
-          </>
+          <div className='flash-card'>
+          <FlashMessage errMessage={'Pass correct values'} duration={3000} />
+          </div>
         ) : null
       }
         {this.props.info ? (
@@ -51,7 +53,7 @@ class Cards extends React.Component {
           )
         ) : (
           <>
-            <h1>Loading...</h1>
+            <LoadingPage />
           </>
         )}
       </>
@@ -59,7 +61,7 @@ class Cards extends React.Component {
   }
 }
 
-const mapStateToProps = ({ category, flash }) => ({ category, flash });
+const mapStateToProps = ({ category, flash, }) => ({ category, flash, });
 
 const mapDispatchToProps = (dispatch) => ({
   getItems: (category) => dispatch(getItems(category)),
