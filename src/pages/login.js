@@ -34,12 +34,6 @@ class Login extends React.Component {
           </div>
         ) : null}
         <div className="login">
-          {this.props.loading ? (
-            <>
-              <LoadingPage />
-            </>
-          ) : (
-            <>
               <FontAwesomeIcon
                 className="login__finger-icon"
                 icon={faFingerprint}
@@ -68,14 +62,20 @@ class Login extends React.Component {
                       this.setState({ password: e.target.value })
                     }
                   />
+                   {this.props.loading ? (
+            <>
+              <LoadingPage />
+            </>
+          ) : (
+            <>
                   <button type="submit">Sign in</button>
+            </>
+          )}
                 </form>
                 <Link className="redirect-register" to="/register">
                   Create Finger account
                 </Link>
               </div>
-            </>
-          )}
         </div>
       </>
     );

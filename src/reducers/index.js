@@ -1,4 +1,13 @@
+import { persistReducer } from "redux-persist"
+import storage from "redux-persist/lib/storage"
+
 const initialState = {}
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['userID']
+}
 
 
 const rootReducer = (state = initialState, action) => {
@@ -93,4 +102,4 @@ const rootReducer = (state = initialState, action) => {
   }; 
 }
 
-export default rootReducer
+export default persistReducer(persistConfig, rootReducer);
