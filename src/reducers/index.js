@@ -39,6 +39,11 @@ const rootReducer = (state = initialState, action) => {
       ...state,
       loading: true,
      }
+   case 'REGISTER_REQ':
+     return{
+       ...state,
+       loading: true,
+     }
    case 'ADD_CATEGORY':
      return{
        ...state,

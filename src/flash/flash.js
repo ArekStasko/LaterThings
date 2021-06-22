@@ -10,7 +10,7 @@ const FlashMessage = ({ errMessage, duration, resetFlash, flash }) => {
     setTimeout(() => {
       resetFlash()
     }, duration);
-   }, []);
+   }, [resetFlash, duration]);
   
   const pick = () => {
     switch (flash.type) {

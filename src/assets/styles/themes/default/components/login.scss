@@ -43,6 +43,10 @@
             border: 1px solid #20242b;
             border-radius: 20px;
 
+            &--loading{
+             align-self: center;
+            }
+
             label{
                 color: #fffff1;
             }

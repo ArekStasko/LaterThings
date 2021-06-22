@@ -16,6 +16,11 @@
         &__icon{
             font-size: 40px;
         }
+
+        p{
+            font-weight: 400;
+            font-size: 20px;
+        }
     }
     .flash-error{
         background-color: rgba($color: #DC3545, $alpha: 0.8);
