@@ -44,16 +44,18 @@ class AddForm extends React.Component {
     return (
       <>
         <div className="addform-container"></div>
-        <div className="addform">
+        <div className="addForm">
+        <div className="addForm__form">
+
           <button
-            className="addform__close"
+            className="addForm__form--close"
             onClick={() => this.props.setShow(!this.props.show)}
           >
             <FontAwesomeIcon icon={faWindowClose} />
           </button>
           <form
             onSubmit={(e) => this.handleSubmit(e)}
-            className="addform__form"
+            className="addForm__form--form"
           >
             <label htmlFor="title">Title</label>
             <input
@@ -83,6 +85,8 @@ class AddForm extends React.Component {
               Add
             </button>
           </form>
+
+          </div>  
         </div>
       </>
     );

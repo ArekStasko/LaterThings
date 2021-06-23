@@ -15,6 +15,7 @@
     align-items: center;
     
     &__finger-icon{
+        margin-top: 5px;
         font-size: 50px;
     }
 
@@ -98,4 +99,33 @@
             background-color: #55a0f5;
         }
     }
+}
+
+
+@media (max-height: 590px) and (max-width: 375px) {
+
+    .login{
+        &__finger-icon{
+            font-size: 35px;
+        }
+    
+        &__header{
+            font-size: 23px;
+        }
+    
+        &__box{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 500px;
+            width: 90%;     
+        }
+    
+        .redirect-register{
+            width: 100%;
+        }
+    }
+    
+
 }
