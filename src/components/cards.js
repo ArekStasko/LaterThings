@@ -47,14 +47,14 @@ class Cards extends React.Component {
               </div>
             ))
           ) : (
-            <>
+            <div className='NoThings'>
               <h1>No things</h1>
-            </>
+            </div>
           )
         ) : (
-          <>
+          <div className='CardsLoading'>
             <LoadingPage />
-          </>
+          </div>
         )}
       </>
     );
