@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addThing as addThingAction } from "../actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import validator from 'validator'
 
 class AddForm extends React.Component {
   constructor() {
@@ -25,6 +26,8 @@ class AddForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.title.length > 0 && this.state.description.length > 0) {
+
+     if(validator.isURL(this.state.link)){
       this.props.setShow(!this.props.show);
        this.props.addThing(
         this.props.category,
@@ -35,6 +38,18 @@ class AddForm extends React.Component {
         link: this.state.link
         }
       ) 
+    } else {
+      this.props.setShow(!this.props.show);
+       this.props.addThing(
+        this.props.category,
+        {
+        category: this.props.category,
+        title: this.state.title,
+        description: this.state.description,
+        }
+      ) 
+    }
+
     } else {
       console.log("pass values");
     }
@@ -66,7 +81,7 @@ class AddForm extends React.Component {
               type="text"
             />
             <label htmlFor="description">Description</label>
-            <input
+            <textarea
               onChange={(e) => this.handleChange(e)}
               name="description"
               value={this.state.description}

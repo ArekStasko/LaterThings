@@ -9,7 +9,7 @@
 .addForm{
 top: 0;    
 position: absolute;    
-width: 100vw;
+width: 99vw;
 height: 100vh;
 z-index: 3;
 display: flex;
@@ -51,6 +51,16 @@ justify-content: center;
         input{
             outline: none;
             height: 40px;
+            border-radius: 10px;
+            border: 1px solid #20242b;
+            background-color: #0d1117; 
+            color: #fffff1;
+        }
+
+        textarea{
+            outline: none;
+            height: 100px;
+            resize: none;
             border-radius: 10px;
             border: 1px solid #20242b;
             background-color: #0d1117; 
