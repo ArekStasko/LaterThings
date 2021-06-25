@@ -1,6 +1,6 @@
 .flash-card{
     position: absolute;
-    z-index: 0;
+    z-index: 3;
     width: 100%;
     display: flex;
     justify-content: flex-start; 
@@ -67,6 +67,10 @@
         justify-content: center;
         width: 100%;
         margin-left: 0px;
+    }
+
+    .flash-card{
+        justify-content: center; 
     }
     
 }

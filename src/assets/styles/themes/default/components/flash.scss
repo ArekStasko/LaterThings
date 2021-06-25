@@ -1,6 +1,4 @@
 .flash{
-    position: fixed;
-
     .flash-error, .flash-success{
         cursor: pointer;
         display: flex;
@@ -48,6 +46,10 @@
             border: 1px solid #20242b;
             border-radius: 10px;
             transition: all 300ms ease-in-out;
+
+            &__icon{
+                font-size: 30px;
+            }
         }
         .flash-error{
             background-color: rgba($color: #DC3545, $alpha: 0.9);

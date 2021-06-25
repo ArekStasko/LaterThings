@@ -43,8 +43,8 @@ class AddForm extends React.Component {
   render() {
     return (
       <>
-        <div className="addform-container"></div>
         <div className="addForm">
+        <div className="addform-container"></div>
         <div className="addForm__form">
 
           <button

@@ -1,6 +1,6 @@
 .nav-btn{
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 1;
     font-size: 40px;
     top: 40px;
@@ -119,6 +119,7 @@
 
 @media (max-width: 768px) {
     .sidebar{
+        z-index: 2;
         align-items: center;
         background-color: #161b22;
         width: 100vw;
@@ -128,13 +129,19 @@
 
    .nav-btn{
     display: initial;
+    z-index: 3;
+}
+
+.add{
+    position: fixed;
+    z-index: 1;
 }
 }
 
 @media (max-width: 375px) {
     .add{
         right: 15px;
-        top: 40px;
+        top: 15px;
         width: 50px;
         height: 50px;
 
@@ -144,4 +151,9 @@
         }
        
     }
+
+   .nav-btn{
+   top: 20px;
+}
+
 }

@@ -97,7 +97,6 @@ const Sidebar = ({ category, show, setShow, addCategory, logout }) => {
         className="add"
         onClick={() => {
           setShow(!show);
-          setNav(!nav);
         }}
       >
         <FontAwesomeIcon className="add-icon" icon={faPlus} />
