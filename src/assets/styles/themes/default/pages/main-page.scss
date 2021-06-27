@@ -1,7 +1,6 @@
 .main-page{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
+    width: $wrapper-full;
+    @include createFlex(flex, flex-start);
 }
 
 @media (max-width: 768px) {

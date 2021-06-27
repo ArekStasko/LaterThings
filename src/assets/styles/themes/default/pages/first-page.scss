@@ -4,18 +4,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    align-items: center;
+    @include createFlex(flex, space-around, center, column);
     box-shadow:inset 0 0 400px #000000;
 
     &__blur{
             position: fixed;
             z-index: 2;
             backdrop-filter: blur(3px);
-            width: 100%;
-            height: 100%; 
+            width: $wrapper-full;
+            height: $wrapper-full; 
     }
 
     &__header{
@@ -27,7 +24,7 @@
      display: flex;
      align-items: center;
      padding-left: 30px;
-     font-size: 50px;   
+     font-size: pxToRem(50);   
 
      h1{
         margin: 0px;
@@ -36,28 +33,23 @@
 
     &__btn{
     z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    @include createFlex(flex, space-between, center, column);
     width: 350px;
     height: 150px;
 
     &--login,
     &--register,
     &--redirect{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include createFlex(flex, center, center);
         cursor: pointer;
         height: 50px;
-        min-width: 90%;
+        min-width: $wrapper-xxl;
         border-radius: 15px;
         background-color: #0d1117;
         border: 1px solid #55afff; 
-        font-size: 20px;
+        font-size: pxToRem(20);
         transition: all 300ms ease-in-out;
-        font-weight: 100;
+        font-weight: $f-weight-xs;
         color: #fffff1;
         text-decoration: none;
 
@@ -76,7 +68,7 @@
         &__header{
          width: 150px;
          height: 150px;
-         font-size: 30px;   
+         font-size: pxToRem(30);   
         }
     
         &__btn{
