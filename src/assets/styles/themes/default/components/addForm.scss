@@ -2,8 +2,8 @@
     position: fixed;
     z-index: 2;
     backdrop-filter: blur(5px);
-    width: 100%;
-    height: 100%;
+    width: $wrapper-full;
+    height: $wrapper-full;
 }
 
 .addForm{
@@ -12,18 +12,14 @@ position: absolute;
 width: 99vw;
 height: 100vh;
 z-index: 3;
-display: flex;
-align-items: center;
-justify-content: center;
+@include createFlex(flex, center, center);
 
 
     &__form{
         width: 400px;
         height: 450px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        @include createFlex(flex, space-between, center, column);
         position: fixed;
         z-index: 3;
         border: 1px solid #20242b;
@@ -36,17 +32,15 @@ justify-content: center;
       justify-self: flex-end;
       align-self: flex-end;
       background-color: transparent;
-      font-size: 20px;
+      font-size: pxToRem(20);
       border: none;
       color: #55a0f5;
     }
 
     &--form{
-        height: 90%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        height: $wrapper-xxl;
+        width: $wrapper-full;
+        @include createFlex(flex, space-around, null, column);
 
         input{
             outline: none;
@@ -75,7 +69,7 @@ justify-content: center;
             background-color: #55a0f5;
             border: 1px solid #55afff; 
             color: #fffff1;
-            font-size: 20px;
+            font-size: pxToRem(20);
             transition: all 600ms ease-in-out;
         }
       }
@@ -86,7 +80,7 @@ justify-content: center;
 
     .addForm{
             &__form{
-                max-width: 90%;
+                max-width: $wrapper-xxl;
                 height: 450px;
             }
         }

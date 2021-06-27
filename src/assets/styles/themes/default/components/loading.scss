@@ -9,7 +9,7 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border-radius: 50%;
+    border-radius: $wrapper;
     border: 6px solid #55a0f5;
     border-color: #55a0f5 transparent #55a0f5 transparent;
     animation: loading 1.2s linear infinite;

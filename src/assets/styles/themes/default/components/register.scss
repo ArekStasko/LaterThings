@@ -1,46 +1,37 @@
 .flash-register{
     position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: center; 
+    width: $wrapper-full;
+    @include createFlex(flex, center);
     margin-top: 30px;
 }
 
 .register{
-    width: 100%;
+    width: $wrapper-full;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include createFlex(flex, center, center, column);
     
     &__finger-icon{
         margin-top: 5px;
-        font-size: 50px;
+        font-size: pxToRem(50);
     }
 
     &__header{
-        font-weight: 100;
-        font-size: 30px;
+        font-weight: $f-weight-xs;
+        font-size: pxToRem(30);
         text-align: center;
     }
 
     &__box{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        @include createFlex(flex, space-evenly, center, column);
         height: 500px;
         min-width: 20%;
 
 
         &--form{
             height: 350px;
-            min-width: 100%;
+            min-width: $wrapper-full;
             padding: 20px;
-            display: flex;
-            justify-content: space-evenly;
-            flex-direction: column;
+            @include createFlex(flex, space-evenly, null, column);
             background-color: #161b22;
             border: 1px solid #20242b;
             border-radius: 20px;
@@ -69,7 +60,7 @@
                 background-color: #55a0f5;
                 border: 1px solid #55afff; 
                 color: #fffff1;
-                font-size: 20px;
+                font-size: pxToRem(20);
                 transition: all 600ms ease-in-out;
 
                 &:hover{
@@ -83,15 +74,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        @include createFlex(flex, center, center);
         cursor: pointer;
         height: 50px;
-        min-width: 90%;
+        min-width: $wrapper-xxl;
         border-radius: 15px;
         background-color: transparent;
         border: 1px solid #55afff; 
-        font-size: 20px;
+        font-size: pxToRem(20);
         transition: all 300ms ease-in-out;
-        font-weight: 100;
+        font-weight: $f-weight-xs;
         color: #fffff1;
         text-decoration: none;
         
@@ -105,24 +97,21 @@
 
     .register{
         &__finger-icon{
-            font-size: 35px;
+            font-size: pxToRem(35);
         }
     
         &__header{
-            font-size: 23px;
+            font-size: pxToRem(23);
         }
     
         &__box{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
+            @include createFlex(flex, space-evenly, center, column);
             height: 500px;
-            width: 90%;     
+            width: $wrapper-xxl;     
         }
     
         .redirect-login{
-            width: 100%;
+            width: $wrapper-full;
         }
     }
     

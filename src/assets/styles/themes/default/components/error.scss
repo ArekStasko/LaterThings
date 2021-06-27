@@ -5,16 +5,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include createFlex(flex, center, center, column);
     background-color: #0d1117;
     color: #55a0f5;
 
     h1{
-        font-size: 60px;
+        font-size: pxToRem(60);
     }
     
     &__link{
         color: #ffffff;
-        font-size: 30px;
+        font-size: pxToRem(30);
         border: 1px solid #ffffff;
         padding: 20px;
         border-radius: 10px;
