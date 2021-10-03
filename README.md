@@ -18,6 +18,7 @@ i made it because i needed application to store below data, i am using it to mak
 - axios
 - React-router
 - styled-components
+- 'backend' made by myself
 
 
 ## What i think about this app ?
